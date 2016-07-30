@@ -1,8 +1,9 @@
 package com.taotao.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbItemCat {
+public class TbItemCat implements Serializable{
     private Long id;
 
     private Long parentId;

@@ -13,7 +13,7 @@
   	<module>taotao-manager-pojo</module>
   	<module>taotao-manager-dao</module>
   	<module>taotao-manager-service</module>
-  	<module>taotao-manager-web</module>
+  	<module>taotao-manager-interface</module>
   </modules>
   <dependencies>
   	<dependency>

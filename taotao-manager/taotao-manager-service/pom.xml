@@ -6,6 +6,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>taotao-manager-service</artifactId>
+  <packaging>war</packaging>
   
   <dependencies>
   	<!-- Spring -->
@@ -50,6 +51,28 @@
 	   	<artifactId>taotao-manager-dao</artifactId>
 	   	<version>0.0.1-SNAPSHOT</version>			
 	</dependency>
-  	
+	
+	<dependency>
+		<groupId>com.taotao</groupId>
+		<artifactId>taotao-manager-interface</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+
+	<!-- dubbo相关 -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>${dubbo.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.zookeeper</groupId>
+				<artifactId>zookeeper</artifactId>
+				<version>${zookeeper.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.sgroschupf</groupId>
+				<artifactId>zkclient</artifactId>
+				<version>${zkclient.version}</version>
+			</dependency>
   </dependencies>
 </project>
