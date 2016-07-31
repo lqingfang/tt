@@ -60,7 +60,8 @@
     <!-- 声明需要暴露的服务接口 -->
     <!-- 创建需要发布对象-->
     <bean id="itemServiceImpl" class="com.taotao.manager.service.impl.ItemServiceImpl"></bean>
+    <bean id="itemCatServiceImpl" class="com.taotao.manager.service.impl.ItemCatServiceImpl"></bean>
    	<!-- 发布服务 -->
     <dubbo:service interface="com.taotao.manager.service.ItemService" ref="itemServiceImpl" timeout="100000"/>
-	
+	<dubbo:service interface="com.taotao.manager.service.ItemCatService" ref="itemCatServiceImpl" timeout="100000"/>
 </beans>

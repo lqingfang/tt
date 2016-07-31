@@ -44,5 +44,5 @@
 	<dubbo:registry protocol="zookeeper" address="192.168.227.136:2181"/>
 	<!-- 引用服务 -->
 	<dubbo:reference interface="com.taotao.manager.service.ItemService" id="itemService" timeout="100000"/>
-	
+	<dubbo:reference interface="com.taotao.manager.service.ItemCatService" id="itemCatServiceImpl" timeout="100000"/>
 </beans>
