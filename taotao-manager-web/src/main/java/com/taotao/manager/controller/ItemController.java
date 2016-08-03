@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.taotao.domain.TbItem;
+import com.taotao.domain.TbItemDesc;
 import com.taotao.manager.service.ItemService;
 import com.taotao.utils.EasyUIResult;
+import com.taotao.utils.TaotaoResult;
 
 @Controller
 public class ItemController {
@@ -38,6 +40,19 @@ public class ItemController {
 		
 		return result;
 
+	}
+	/**
+	 * 请求：$.post("/item/save"
+	 * 参数：需要保存2张表数据，商品表，商品描述表。
+	 * 返回值：同过ajax回调函数判断需要返回值类型
+	 * @param item
+	 * @param itemDesc
+	 * @return
+	 */
+	@RequestMapping("/item/save")
+	public @ResponseBody TaotaoResult saveItem(TbItem item,TbItemDesc itemDesc) {
+		TaotaoResult result = itemService.saveItem(item, itemDesc);
+		return result;
 	}
 
 }

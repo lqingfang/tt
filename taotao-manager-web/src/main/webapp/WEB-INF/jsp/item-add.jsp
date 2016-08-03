@@ -46,7 +46,7 @@
 	        <tr>
 	            <td>商品描述:</td>
 	            <td>
-	                <textarea style="width:800px;height:300px;visibility:hidden;" name="desc"></textarea>
+	                <textarea style="width:800px;height:300px;visibility:hidden;" name="itemDesc"></textarea>
 	            </td>
 	        </tr>
 	        <tr class="params hide">
@@ -68,7 +68,7 @@
 	//页面初始化完毕后执行此方法
 	$(function(){
 		//创建富文本编辑器
-		itemAddEditor = TAOTAO.createEditor("#itemAddForm [name=desc]");
+		itemAddEditor = TAOTAO.createEditor("#itemAddForm [name=itemDesc]");
 		//初始化类目选择和图片上传器
 		TAOTAO.init({fun:function(node){
 			//根据商品的分类id取商品 的规格模板，生成规格信息。第四天内容。

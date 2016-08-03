@@ -1,7 +1,9 @@
 package com.taotao.manager.service;
 
 import com.taotao.domain.TbItem;
+import com.taotao.domain.TbItemDesc;
 import com.taotao.utils.EasyUIResult;
+import com.taotao.utils.TaotaoResult;
 
 
 public interface ItemService {
@@ -19,4 +21,12 @@ public interface ItemService {
 	 * 使用注解@responseBody自动转换成json格式数据
 	 */
 	public EasyUIResult findItemListByPage(Integer page, Integer rows);
+	
+	/**
+	 * 需求：保存商品信息
+	 *  1、tb_item商品表
+	 *  2、tb_item_desc 商品描述表
+	 * 返回值：{status:200} 包装对象：TaotaoResult
+	 */
+	public TaotaoResult saveItem(TbItem item,TbItemDesc itemDesc);
 }

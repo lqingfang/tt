@@ -19,6 +19,8 @@
 	http://www.springframework.org/schema/util
 	http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 	
+	<context:property-placeholder location="classpath:resources.properties"/>
+	
 	<!-- 1.加载表现层类（创建对象Controller） 2.注解驱动(支持springmvc注解，支持json格式数据自动转换) 3.视图解析 -->
 	<!-- 扫描Controller -->
 	<context:component-scan base-package="com.taotao.manager.controller"></context:component-scan>
@@ -34,6 +36,11 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	<!-- 上传文件解析器 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10240000"></property>
 	</bean>
 	
 	<!-- 引入Zookeeper注册中心服务 -->
