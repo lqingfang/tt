@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.taotao</groupId>
+    <artifactId>taotao-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.taotao</groupId>
+  <artifactId>taotao-content</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+  	<module>taotao-content-inferface</module>
+  	<module>taotao-content-service</module>
+  </modules>
+  
+  
+  <!-- 聚合父工程
+  	1、抽取公共坐标
+  	2、统一管理子工程（安装，启动）
+  	tomcat插件：
+  		端口：8084
+  	参考：taotao-manager（拷贝，修改）
+   -->
+   <dependencies>
+   		<dependency>
+   			<groupId>com.taotao</groupId>
+   			<artifactId>taotao-common</artifactId>
+   			<version>0.0.1-SNAPSHOT</version>   			
+   		</dependency>
+   
+   </dependencies>
+   
+    
+  <build>
+  	<plugins>
+		<!-- 配置Tomcat插件 -->
+		<plugin>
+			<groupId>org.apache.tomcat.maven</groupId>
+			<artifactId>tomcat7-maven-plugin</artifactId>
+			<version>2.2</version>
+			<configuration>
+				<!-- 定义项目发布路径，相当于把项目放入tomcat的ROOT目录
+					访问项目时：不需要使用项目名称，直接使用路径访问
+				 -->
+				<path>/</path>
+				<port>8084</port>
+			</configuration>
+		</plugin>
+	</plugins>
+  </build>
+</project>

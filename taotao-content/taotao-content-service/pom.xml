@@ -2,32 +2,23 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.taotao</groupId>
-    <artifactId>taotao-parent</artifactId>
+    <artifactId>taotao-content</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>taotao-manager-web</artifactId>
+  <artifactId>taotao-content-service</artifactId>
   <packaging>war</packaging>
   
-  <dependencies>
-  	<!-- JSP相关 -->
-	<dependency>
-		<groupId>jstl</groupId>
-		<artifactId>jstl</artifactId>
-		<version>${jstl.version}</version>
-	</dependency>
-	<dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>servlet-api</artifactId>
-		<version>${servlet-api.version}</version>
-		<scope>provided</scope>
-	</dependency>
-	<dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>jsp-api</artifactId>
-		<version>${jsp-api.version}</version>
-		<scope>provided</scope>
-	</dependency>
-	<!-- Spring -->
+  
+  <!-- CMS(内容管理系统)
+  	1、加载spring配置文件：spring 坐标
+  	2、发布服务：dubbo,zookeeper
+  	3、依赖content-interface接口
+  	4、依赖dao接口
+  	参考：taotao-manager-service(拷贝，修改)
+  	
+   -->
+     <dependencies>
+   	<!-- Spring -->
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
@@ -63,7 +54,7 @@
 				<artifactId>spring-context-support</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
-	<!-- dubbo相关 -->
+			<!-- dubbo相关 -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>dubbo</artifactId>
@@ -79,50 +70,28 @@
 				<artifactId>zkclient</artifactId>
 				<version>${zkclient.version}</version>
 			</dependency>
-	
-	<!-- 文件上传组件 -->
 			<dependency>
-				<groupId>commons-fileupload</groupId>
-				<artifactId>commons-fileupload</artifactId>
-				<version>${commons-fileupload.version}</version>
+				<groupId>com.github.miemiedev</groupId>
+				<artifactId>mybatis-paginator</artifactId>
+				<version>${mybatis.paginator.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>fastdfs_client</groupId>
-				<artifactId>fastdfs_client</artifactId>
-				<version>1.25</version>
-			</dependency>
-	
-	
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper</artifactId>
+				<version>${pagehelper.version}</version>
+			</dependency>			
+			<!-- 依赖dao -->
 			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>4.12</version>
+				<groupId>com.taotao</groupId>
+				<artifactId>taotao-manager-dao</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
-	<!-- 依赖interface -->
-	<dependency>
-		<groupId>com.taotao</groupId>
-		<artifactId>taotao-manager-interface</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</dependency>
-	<dependency>
-		<groupId>com.taotao</groupId>
-		<artifactId>taotao-content-inferface</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</dependency>
-  </dependencies>
-  
-  <build>
-	  <plugins>
-		<!-- 配置Tomcat插件 -->
-		<plugin>
-			<groupId>org.apache.tomcat.maven</groupId>
-			<artifactId>tomcat7-maven-plugin</artifactId>
-			<version>2.2</version>
-			<configuration>
-				<path>/</path>
-				<port>8082</port>
-			</configuration>
-		</plugin>
-	</plugins>
-  </build>
+			
+			<dependency>
+				<groupId>com.taotao</groupId>
+				<artifactId>taotao-content-inferface</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+   
+   </dependencies>
 </project>

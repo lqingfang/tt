@@ -129,6 +129,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.taotao.domain.TbContent" >
+  	<selectKey keyProperty="id" order="AFTER" resultType="long">
+  		SELECT LAST_INSERT_ID()
+  	</selectKey>
     insert into tb_content (id, category_id, title, 
       sub_title, title_desc, url, 
       pic, pic2, created, 
