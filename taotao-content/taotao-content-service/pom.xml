@@ -79,6 +79,13 @@
 				<groupId>com.github.pagehelper</groupId>
 				<artifactId>pagehelper</artifactId>
 				<version>${pagehelper.version}</version>
+			</dependency>	
+			
+			<!-- Redis客户端 -->
+			<dependency>
+				<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+				<version>${jedis.version}</version>
 			</dependency>			
 			<!-- 依赖dao -->
 			<dependency>
