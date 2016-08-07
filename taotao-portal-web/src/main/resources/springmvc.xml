@@ -38,7 +38,7 @@
 	<!-- 使用dubbo从Zookeeper注册中心获取服务 -->
 	<dubbo:registry protocol="zookeeper" address="192.168.227.136:2181" />
 	<!-- 获取服务 -->
-	<dubbo:reference interface="com.taotao.content.service.ContentService" id="contentServiceImpl" timeout="100000"/>
+	<dubbo:reference interface="com.taotao.content.service.ContentService" id="contentService" timeout="100000"/>
 	
 	
 	<!-- 静态资源放行 -->

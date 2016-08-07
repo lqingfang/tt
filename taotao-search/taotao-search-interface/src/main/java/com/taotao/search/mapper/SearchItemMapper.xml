@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.taotao.search.mapper.SearchItemMapper">
+<!-- 
+	mybatis接口开发规范：
+	1.映射文件namespace名称是接口全类路径名
+	2.映射文件sql语句字段Id必须和接口方法名相同
+	3.映射文件和接口必须在同一个包目录，且名称相同
+ -->
+	<select id="dataImport" resultType="com.taotao.search.pojo.SearchItem">
+		SELECT 
+		  a.id,
+		  a.title,
+		  a.sell_point,
+		  a.price,
+		  a.image,
+		  b.name category_name,
+		  c.item_desc 
+		FROM
+		  tb_item a,
+		  tb_item_cat b,
+		  tb_item_desc c 
+		WHERE a.cid = b.id 
+		  AND a.id = c.item_id 
+		  AND a.status = 1
+	</select>
+</mapper>

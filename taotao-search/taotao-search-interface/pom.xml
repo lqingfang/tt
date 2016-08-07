@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.taotao</groupId>
+    <artifactId>taotao-search</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>taotao-search-interface</artifactId>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>com.taotao</groupId>
+  		<artifactId>taotao-manager-pojo</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	<!-- solr客户端 -->
+	<dependency>
+		<groupId>org.apache.solr</groupId>
+		<artifactId>solr-solrj</artifactId>
+		<version>${solrj.version}</version>
+	</dependency>
+  </dependencies>
+  <!-- src/main/java目录下只加载java代码
+  	        根据开发规范：把接口映射文件放入src/main/java目录下。
+  	        要求：src/main/java也能编译xml文件
+   -->
+   <build>
+   	<resources>
+   		<resource>
+   			<directory>src/main/java</directory>
+   			<includes>
+   				<include>**/*.properties</include>
+   				<include>**/*.xml</include>
+   			</includes>
+   			<filtering>false</filtering>
+   		</resource>
+   		<resource>
+   			<directory>src/main/resources</directory>
+   			<includes>
+   				<include>**/*.properties</include>
+   				<include>**/*.xml</include>
+   			</includes>
+   			<filtering>false</filtering>
+   		</resource>
+   	</resources>
+   </build>
+</project>

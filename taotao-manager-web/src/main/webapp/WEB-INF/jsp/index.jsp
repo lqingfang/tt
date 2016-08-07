@@ -33,6 +33,7 @@
          		<ul>
 	         		<li data-options="attributes:{'url':'content-category'}">内容分类管理</li>
 	         		<li data-options="attributes:{'url':'content'}">内容管理</li>
+	         		<li data-options="attributes:{'url':'index-manager'}">索引库维护</li>
 	         	</ul>
          	</li>
          </ul>

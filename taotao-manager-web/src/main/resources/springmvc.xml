@@ -51,7 +51,8 @@
 	<dubbo:registry protocol="zookeeper" address="192.168.227.136:2181"/>
 	<!-- 引用服务 -->
 	<dubbo:reference interface="com.taotao.manager.service.ItemService" id="itemService" timeout="100000"/>
-	<dubbo:reference interface="com.taotao.manager.service.ItemCatService" id="itemCatServiceImpl" timeout="100000"/>
-	<dubbo:reference interface="com.taotao.content.service.ContentCategoryService" id="contentCategoryServiceImpl" timeout="100000"/>
-	<dubbo:reference interface="com.taotao.content.service.ContentService" id="contentServiceImpl" timeout="100000"/>
+	<dubbo:reference interface="com.taotao.manager.service.ItemCatService" id="itemCatService" timeout="100000"/>
+	<dubbo:reference interface="com.taotao.content.service.ContentCategoryService" id="contentCategoryService" timeout="100000"/>
+	<dubbo:reference interface="com.taotao.content.service.ContentService" id="contentService" timeout="100000"/>
+	<dubbo:reference interface="com.taotao.search.service.SearchItemService" id="searchItemService" timeout="100000"/>
 </beans>
