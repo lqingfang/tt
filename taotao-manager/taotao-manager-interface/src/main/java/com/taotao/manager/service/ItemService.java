@@ -29,4 +29,6 @@ public interface ItemService {
 	 * 返回值：{status:200} 包装对象：TaotaoResult
 	 */
 	public TaotaoResult saveItem(TbItem item,TbItemDesc itemDesc);
+
+	public TbItemDesc findItemDescByID(Long itemId);
 }

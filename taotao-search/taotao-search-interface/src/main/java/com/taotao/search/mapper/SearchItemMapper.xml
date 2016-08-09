@@ -24,4 +24,22 @@
 		  AND a.id = c.item_id 
 		  AND a.status = 1
 	</select>
+	<select id="findSearchItemByID" parameterType="long" resultType="com.taotao.search.pojo.SearchItem">
+		SELECT 
+		  a.id,
+		  a.title,
+		  a.sell_point,
+		  a.price,
+		  a.image,
+		  b.name category_name,
+		  c.item_desc 
+		FROM
+		  tb_item a,
+		  tb_item_cat b,
+		  tb_item_desc c 
+		WHERE a.cid = b.id 
+		  AND a.id = c.item_id
+		  AND a.status = 1
+		  AND a.id = #{itemId} 
+	</select>
 </mapper>

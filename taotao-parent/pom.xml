@@ -36,6 +36,7 @@
 		<freemarker.version>2.3.23</freemarker.version>
 		<quartz.version>2.2.2</quartz.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	
 	</properties>
 	<dependencyManagement>
 		<dependencies>

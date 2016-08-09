@@ -3,6 +3,8 @@ package com.taotao.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class TbItem implements Serializable{
     private Long id;
 
@@ -25,6 +27,10 @@ public class TbItem implements Serializable{
     private Date created;
 
     private Date updated;
+    
+    private String[] images;
+    
+    
 
     public Long getId() {
         return id;
@@ -113,4 +119,17 @@ public class TbItem implements Serializable{
     public void setUpdated(Date updated) {
         this.updated = updated;
     }
+
+	public String[] getImages() {
+		String[] img = null;
+		if(StringUtils.isNotBlank(image)){
+			img = image.split(",");
+		}
+		return img;
+	}
+
+	public void setImages(String[] images) {
+		this.images = images;
+	}
+    
 }

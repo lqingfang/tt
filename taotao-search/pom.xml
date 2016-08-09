@@ -46,7 +46,9 @@
 				<port>8086</port>
 			</configuration>
 		</plugin>
-	</plugins>
+		
+    </plugins>
+	
   </build>
   
 </project>

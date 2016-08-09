@@ -19,7 +19,7 @@
 	http://www.springframework.org/schema/util
 	http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 	<!-- 1.加载Service类 2.管理事务 -->
-	<context:component-scan base-package="com.taotao.manager.service"></context:component-scan>
+	<context:component-scan base-package="com.taotao.manager"></context:component-scan>
 
 	<!-- 管理事务 -->
 	<!-- 创建一个管理事务类 -->

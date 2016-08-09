@@ -19,17 +19,19 @@
 	http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
 	<!-- 把solr交给spring管理 -->
-	<!--  
+	  
 	<bean class="org.apache.solr.client.solrj.impl.HttpSolrServer">
 		<constructor-arg name="baseURL" value="http://192.168.227.136:8011/solr"></constructor-arg>
 	</bean>
-	-->
+	
 	
 	
 	<!-- 创建solr集群对象 -->
+	<!--  
 	<bean id="" class="org.apache.solr.client.solrj.impl.CloudSolrServer">
 		<constructor-arg name="zkHost" value="192.168.227.136:2182,192.168.227.136:2183,192.168.227.136:2184"></constructor-arg>
-		<!-- 设置默认操作索引库 -->
+		
 		<property name="defaultCollection" value="collection1"></property>
 	</bean>
+	-->
 </beans>
