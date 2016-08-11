@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:jms="http://www.springframework.org/schema/jms" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://code.alibabatech.com/schema/dubbo 
+	http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+	http://www.springframework.org/schema/jms
+	http://www.springframework.org/schema/jms/spring-jms-4.0.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+	
+	<!-- 添加商品：发送消息 -->
+	<!-- 消息工厂交给spring管理 -->
+	<bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<constructor-arg name="brokerURL" value="tcp://192.168.227.136:61616"></constructor-arg>
+	</bean>
+	<!-- spring提供消息服务管理：管理消息工厂
+		Spring来管理JMS消息服务器
+	 -->
+	 <bean id="connectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+	 	<property name="targetConnectionFactory" ref="targetConnectionFactory"></property>
+	 </bean>
+	 
+	<bean id="addItemTopic" class="org.apache.activemq.command.ActiveMQTopic">
+		<constructor-arg index="0" value="add_item_topic"></constructor-arg>
+	</bean>
+	<!-- 使用自定义监听器接受消息 -->
+	<bean id="messageListener" class="com.taotao.item.mq.AddItemFreeMarkerListener"></bean>
+	<!-- 使用监听器接受消息：
+		spring JMS框架使用默认监听器加载自定义监听器，接受消息
+	 -->
+	 <bean class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+	 	<property name="connectionFactory" ref="connectionFactory"></property>
+	 	<property name="messageListener" ref="messageListener"></property>
+	 	<!--  
+	 	<property name="destination" ref="myqueue"></property>
+	 	-->
+	 	<property name="destination" ref="addItemTopic"></property>
+	 </bean>
+</beans>
