@@ -135,7 +135,7 @@
 		        <li id="choose-result"><div class="dt"></div><div class="dd"></div></li>
 				<li id="choose-btns">
 					<div id="choose-btn-append"  class="btn">
-							<a class="btn-append " id="InitCartUrl" href="/cart/add/${item.id}.html" clstag="shangpin|keycount|product|initcarturl">加入购物车<b></b></a>
+							<a class="btn-append " id="InitCartUrl" href="javascript:void(0);" onclick="addCart();" clstag="shangpin|keycount|product|initcarturl">加入购物车<b></b></a>
 					</div>
 					<div id="choose-btn-easybuy" class="btn"></div>
 					<div id="choose-btn-divide" class="btn"></div>
@@ -299,6 +299,11 @@
 			itemControl.getItemDesc(itemId);
 		},1000);
 	});
+	
+	function addCart() {
+		//跳转购物车系统taotao-cart-web(8090),携带购买商品数量
+		window.location.href="http://localhost:8090/add/cart/${item.id}/"+$("#buy-num").val()+".html";
+	}
 </script>
 </body>
 </html>
